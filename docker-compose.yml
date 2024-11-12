@@ -1,0 +1,6 @@
+﻿services:
+  leo.microservicename:
+    image: leo.microservicename
+    build:
+      context: .
+      dockerfile: Leo.MicroserviceName/Dockerfile

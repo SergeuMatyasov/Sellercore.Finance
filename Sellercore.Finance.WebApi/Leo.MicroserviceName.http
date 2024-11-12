@@ -1,0 +1,6 @@
+@Sellercore.MicroserviceName_HostAddress = http://localhost:5189
+
+GET {{Sellercore.MicroserviceName_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

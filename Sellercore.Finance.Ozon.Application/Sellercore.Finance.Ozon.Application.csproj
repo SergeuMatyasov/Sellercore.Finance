@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Sellercore.Finance.Application\Sellercore.Finance.Application.csproj" />
+      <ProjectReference Include="..\Sellercore.Finance.Ozon.Domain\Sellercore.Finance.Ozon.Domain.csproj" />
+      <ProjectReference Include="..\Sellercore.Finance.Domain\Sellercore.Finance.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

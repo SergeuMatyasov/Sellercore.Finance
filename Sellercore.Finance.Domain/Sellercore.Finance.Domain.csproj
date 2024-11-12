@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Sellercore.Shared\Sellercore.Ozon.Shared.Domain\Sellercore.Ozon.Shared.Domain.csproj" />
+      <ProjectReference Include="..\..\Sellercore.Shared\Sellercore.Shared.Domain\Sellercore.Shared.Domain.csproj" />
+      <ProjectReference Include="..\..\Shared\Shared.Domain\Shared.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Common\" />
+      <Folder Include="Constants\" />
+      <Folder Include="Enums\" />
+      <Folder Include="Events\" />
+      <Folder Include="Exceptions\" />
+      <Folder Include="Interfaces\" />
+      <Folder Include="ValueObjects\" />
+    </ItemGroup>
+
+</Project>
