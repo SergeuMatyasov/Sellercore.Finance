@@ -1,7 +1,7 @@
 namespace Sellercore.Finance.Ozon.Domain.Models.ExcelModels;
 
-public class ProductCostExcelModel(string offerId, float cost)
+public class ProductCostExcelModel
 {
-    public string OfferId { get; set; } = offerId;
-    public float Cost { get; set; } = cost;
+    public string OfferId { get; set; }
+    public float Cost { get; set; }
 }
