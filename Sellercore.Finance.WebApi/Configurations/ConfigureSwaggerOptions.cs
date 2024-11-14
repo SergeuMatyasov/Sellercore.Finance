@@ -17,7 +17,7 @@ public class ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) : 
                 new OpenApiInfo
                 {
                     Version = apiVersion,
-                    Title = $"ProjectName API {apiVersion}",
+                    Title = $"Sellercore finance API {apiVersion}",
                 });
             
             options.CustomOperationIds(apiDescription =>

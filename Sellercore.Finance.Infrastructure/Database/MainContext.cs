@@ -2,6 +2,8 @@ using Sellercore.Finance.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
+using Sellercore.Finance.Infrastructure.Database.Configurations;
+using Sellercore.Finance.Ozon.Domain.Entities;
 
 namespace Sellercore.Finance.Infrastructure.Database;
 
@@ -9,7 +11,8 @@ public class MainContext(DbContextOptions<MainContext> options, ILogger<MainCont
     : DbContext(options),
         IDbContext
 {
-    //public DbSet<Entity> Images { get; set; }
+    public DbSet<InternalOzonSeller> InternalOzonSellers { get; set; }
+    public DbSet<OzonSellerProduct> OzonSellerProducts { get; set; }
 
     public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
@@ -25,7 +28,7 @@ public class MainContext(DbContextOptions<MainContext> options, ILogger<MainCont
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        //builder.ApplyConfiguration(new LeoImageConfiguration());
+        builder.ApplyConfiguration(new InternalOzonSellerConfiguration());
 
         base.OnModelCreating(builder);
     }

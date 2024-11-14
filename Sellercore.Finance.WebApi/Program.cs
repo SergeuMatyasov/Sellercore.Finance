@@ -30,7 +30,7 @@ public abstract class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Configuration.AddSellercoreConsulConfiguration();
-        builder.Configuration.AddMicroserviceNameConsulConfiguration();
+        builder.Configuration.AddFinanceConsulConfiguration();
         builder.Configuration.AddEnvironmentVariables();
 
         IConfiguration configuration = builder.Configuration;
@@ -67,8 +67,7 @@ public abstract class Program
         // Конфигурация инфраструктуры
         //app.UseSerilogRequestLogging();
         app.UseRequestLogging();
-        //todo: Включить при использовании базы данных
-        //app.InitializeDatabase();
+        app.InitializeDatabase();
 
         // Конфигурация API и документации
         app.UseSwaggerWithVersioning();
