@@ -6,8 +6,8 @@ using Ozon.NET.Enums;
 using Ozon.NET.Models.Reports;
 using Ozon.NET.Services.Shipment;
 using Ozon.NET.Services.TransactionService;
+using Sellercore.Finance.Ozon.Application.Interfaces.Repositories;
 using Sellercore.Finance.Ozon.Application.UseCases.Reports.Queries.GenerateProductReports;
-using Sellercore.Ozon.Shared.Application.UseCases.Sellers.Queries;
 using Shared.Domain.Exceptions;
 using Shared.Domain.Extensions;
 using Shared.Domain.Interfaces.CQRS;
@@ -28,6 +28,7 @@ public class GenerateShipmentReportQuery(int sellerId, string postingNumber) : I
 }
 
 public class GenerateShipmentReportQueryHandler(
+    IInternalOzonSellerRepository internalOzonSellerRepository,
     ISender sender,
     ILogger<GenerateShipmentReportQueryHandler> logger)
     : IQueryHandler<GenerateShipmentReportQuery, OzonShipmentReport>
@@ -41,7 +42,7 @@ public class GenerateShipmentReportQueryHandler(
         sellerId = request.OzonSellerId;
         postingNumber = request.PostingNumber;
 
-        OzonSeller seller = await sender.Send(new GetOzonSellerQuery(sellerId), cancellationToken);
+        OzonSeller seller = await internalOzonSellerRepository.GetDecryptedOzonSellerAsync(sellerId, cancellationToken);
 
         IOzonShipmentService ozonShipmentService = new OzonShipmentService(seller, logger);
         ITransactionService transactionService = new TransactionService(seller, logger);
